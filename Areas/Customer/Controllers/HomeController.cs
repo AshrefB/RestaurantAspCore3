@@ -9,6 +9,7 @@ using RestaurantAspCore3.Models;
 
 namespace RestaurantAspCore3.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
