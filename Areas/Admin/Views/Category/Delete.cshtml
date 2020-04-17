@@ -1,32 +1,33 @@
 ﻿@model RestaurantAspCore3.Models.Category
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Create Category";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
+    <br /><br /><br />
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Category</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
-</body>
-</html>
+    <div class="row">
+        <div class="col-12">
+            <h4 class="text-info text-center text-uppercase">Delete Category</h4>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <h3>Are you sure you want to delete this category ?</h3>
+            <div>
+                <span>
+                    <strong>@Html.DisplayNameFor(model => model.Name)</strong>: @Html.DisplayFor(model => model.Name)
+                </span>
+                <br /><br />
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <a class="btn btn-outline-success" asp-action="Index">Back to List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
