@@ -1,7 +1,7 @@
 ﻿@model RestaurantAspCore3.Models.Category
 
 @{
-    ViewData["Title"] = "Create Category";
+    ViewData["Title"] = "Delete Category";
 }
 
     <br /><br /><br />
@@ -19,6 +19,7 @@
                 <span>
                     <strong>@Html.DisplayNameFor(model => model.Name)</strong>: @Html.DisplayFor(model => model.Name)
                 </span>
+
                 <br /><br />
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="Id" />
