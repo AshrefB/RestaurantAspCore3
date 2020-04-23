@@ -1,0 +1,50 @@
+﻿@model RestaurantAspCore3.Models.ViewModels.SubCategoryAndCategory
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<br />
+<br />
+
+<div class="row">
+    <div class="col-12">
+        <h4 class="text-info text-center text-uppercase">Create SubCategory</h4>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SubCategory.Name" class="control-label"></label>
+                <input asp-for="SubCategory.Name" class="form-control" />
+                <span asp-validation-for="SubCategory.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubCategory.CategoryId" class="control-label"></label>
+                <select asp-for="SubCategory.CategoryId" class="form-control" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))"></select>
+            </div>
+            <div class="form-group">
+                <partial name="_CreateAndBackToListButtonPartial" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <h6>Existing Sub Categories</h6>
+        <ul class="list-group">
+            @foreach(var item in Model.SubCategories)
+            {
+                <li class="list-group-item">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
