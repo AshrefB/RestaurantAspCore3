@@ -12,6 +12,7 @@ using RestaurantAspCore3.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RestaurantAspCore3.Areas.Admin.Services;
 
 namespace RestaurantAspCore3
 {
@@ -34,6 +35,7 @@ namespace RestaurantAspCore3
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddScoped<ICategoryService, CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
