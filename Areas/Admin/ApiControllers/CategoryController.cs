@@ -57,5 +57,13 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
             }
             return BadRequest();
         }
+
+        [HttpDelete]
+        [Route("{Id}")]
+        public async Task<IActionResult> DeleteCategory(int Id)
+        {
+            var DeletedCategory = await CategoryService.DeleteCategory(Id);
+            return Ok(DeletedCategory);
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace RestaurantAspCore3.Areas.Admin.Services
         Task<Category> GetCategoryById(int Id);
         Task<Category> AddCategory(Category Category);
         Task<Category> UpdateCategory(int Id, Category Category);
+        Task<Category> DeleteCategory(int Id);
     }
 }
