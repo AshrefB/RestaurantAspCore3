@@ -28,7 +28,7 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{Id}")]
         public async Task<IActionResult> GetCategoryById(int Id)
         {
             var Category = await CategoryService.GetCategoryById(Id);
@@ -42,6 +42,18 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
             {
                 var AddedCategory = await CategoryService.AddCategory(Category);
                 return Ok(AddedCategory);
+            }
+            return BadRequest();
+        }
+
+        [HttpPut]
+        [Route("{Id}")]
+        public async Task<IActionResult> UpdateCategory(int Id, Category Category)
+        {
+            if (ModelState.IsValid)
+            {
+                var UpdatedCategory = await CategoryService.UpdateCategory(Id, Category);
+                return Ok(UpdatedCategory);
             }
             return BadRequest();
         }
