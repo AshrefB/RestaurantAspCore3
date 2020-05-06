@@ -11,8 +11,8 @@ using RestaurantAspCore3.Models;
 namespace RestaurantAspCore3.Areas.Admin.ApiControllers
 {
     [ApiController]
-    [Route("/api/categories")]
-    public class CategoryController : Controller
+    [Route("api/categories")]
+    public class CategoryController : ControllerBase
     {
         private readonly ICategoryService CategoryService;
         public CategoryController(ICategoryService CategoryService)
