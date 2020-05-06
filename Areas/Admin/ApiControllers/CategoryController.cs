@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestaurantAspCore3.Areas.Admin.Services;
 using RestaurantAspCore3.Data;
+using RestaurantAspCore3.Models;
 
 namespace RestaurantAspCore3.Areas.Admin.ApiControllers
 {
@@ -32,6 +33,17 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
         {
             var Category = await CategoryService.GetCategoryById(Id);
             return Ok(Category);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(Category Category)
+        {
+            if (ModelState.IsValid)
+            {
+                var AddedCategory = await CategoryService.AddCategory(Category);
+                return Ok(AddedCategory);
+            }
+            return BadRequest();
         }
     }
 }

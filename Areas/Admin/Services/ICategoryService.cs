@@ -9,6 +9,7 @@ namespace RestaurantAspCore3.Areas.Admin.Services
     public interface ICategoryService
     {
         Task<IEnumerable<Category>> GetCategories();
-        Task<Category> GetCategoryById(int id);
+        Task<Category> GetCategoryById(int Id);
+        Task<Category> AddCategory(Category Category);
     }
 }
