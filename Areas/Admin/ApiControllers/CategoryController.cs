@@ -20,11 +20,18 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
         }
 
         [HttpGet]
-        [Route("all")]
         public async Task<IActionResult> GetCategories()
         {
-            var categories = await CategoryService.GetCategories();
-            return Ok(categories);
+            var Categories = await CategoryService.GetCategories();
+            return Ok(Categories);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetCategoryById(int Id)
+        {
+            var Category = await CategoryService.GetCategoryById(Id);
+            return Ok(Category);
         }
     }
 }
